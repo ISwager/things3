@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centrados en un Cambio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2d3e50, #37474f); /* Fondo más oscuro y agradable */
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Manchas de colores de fondo - formas más irregulares */
+        .background-blob {
+            position: absolute;
+            width: 350px;
+            height: 300px;
+            background: rgba(255, 193, 7, 0.2); /* Amarillo suave */
+            top: 15%;
+            left: 5%;
+            z-index: -1;
+            border-radius: 60% 40% 30% 70% / 50% 30% 60% 40%; /* Manchas irregulares */
+            transform: rotate(20deg);
+        }
+
+        .background-blob-2 {
+            position: absolute;
+            width: 450px;
+            height: 350px;
+            background: rgba(0, 123, 255, 0.2); /* Azul claro */
+            top: 50%;
+            left: 70%;
+            z-index: -1;
+            border-radius: 40% 60% 60% 40% / 60% 40% 50% 50%;
+            transform: rotate(-15deg);
+        }
+
+        h1 {
+            text-align: center;
+            color: #28a745;
+            margin-top: 50px;
+            font-size: 3em;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            color: #d4d4d4;
+            line-height: 1.6em;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        /* Puntos animados, ajustados fuera de los márgenes de texto */
+        .dot {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background-color: #28a745;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        /* Puntos en el lado izquierdo (ajustados fuera del contenido principal) */
+        .dot.left {
+            left: -2cm;
+            transform: translateX(-50%);
+        }
+
+        /* Puntos en el lado derecho (ajustados fuera del contenido principal) */
+        .dot.right {
+            right: -2cm;
+            transform: translateX(50%);
+        }
+
+        /* Animación de caída smooth */
+        @keyframes fall {
+            0% {
+                top: -10px;
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(10px) scale(1.2);
+            }
+            100% {
+                top: 110vh;
+                opacity: 0;
+                transform: translateY(20px) scale(1.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-blob"></div>
+    <div class="background-blob-2"></div>
+
+    <h1>Centrados en un Cambio</h1>
+
+    <div class="content">
+        <p>¡Bienvenidos a <span class="highlight">Centrados en un Cambio</span>! Nuestro partido está enfocado en mejorar la vida de los estudiantes, ofreciendo <span class="highlight">comodidad</span> y un ambiente de <span class="highlight">participación</span> y <span class="highlight">felicidad</span> para todos.</p>
+
+        <p>En nuestro colegio, muchos alumnos sienten que no tienen la oportunidad de ser escuchados. Es por eso que <span class="highlight">Centrados en un Cambio</span> se compromete a crear espacios donde todos puedan expresar sus opiniones y donde la participación sea clave para generar un ambiente escolar positivo.</p>
+
+        <p>¿Qué nos diferencia? Creemos firmemente que la <span class="highlight">felicidad</span> es un derecho de todos los alumnos. Sabemos que si un estudiante está cómodo y se siente apoyado, su rendimiento académico será mucho mejor. Es por eso que trabajamos en iniciativas que promuevan la <span class="highlight">comunidad estudiantil</span> y la <span class="highlight">colaboración</span>.</p>
+
+        <p>Algunas de nuestras propuestas incluyen:</p>
+        <ul>
+            <li><strong>Clases más interactivas</strong>: Queremos que las lecciones sean más dinámicas, donde los alumnos puedan participar activamente y sentir que están aprendiendo de manera divertida.</li>
+            <li><strong>Eventos escolares inclusivos</strong>: No más actividades donde solo unos pocos puedan participar. Proponemos eventos en los que cada estudiante tenga un papel, sin importar sus habilidades o intereses.</li>
+            <li><strong>Áreas de descanso y recreación</strong>: Sabemos que los descansos son esenciales para un buen rendimiento, por lo que proponemos mejorar las áreas de recreo para que sean lugares cómodos y relajantes para todos.</li>
+        </ul>
+
+        <p>Además, también estamos comprometidos con el bienestar emocional de los alumnos. Implementaremos programas de apoyo psicológico y crearemos una red de consejeros estudiantiles para que todos tengan a quién acudir en momentos de estrés o preocupación.</p>
+
+        <p>Creemos que un colegio más participativo y feliz es posible. Si tú también crees en esto, no dudes en unirte a <span class="highlight">Centrados en un Cambio</span> y votar por nosotros. ¡Estamos seguros de que juntos podemos lograr grandes cosas!</p>
+
+        <p><em>¡Tu voz, tu elección, tu cambio!</em></p>
+    </div>
+
+    <script>
+        // Crear puntos animados, ajustados fuera del contenido principal
+        function createDots() {
+            for (let i = 0; i < 15; i++) {
+                let dotLeft = document.createElement("div");
+                dotLeft.classList.add("dot", "left");
+                dotLeft.style.top = Math.random() * 100 + "vh"; // Posición vertical aleatoria
+                dotLeft.style.animationDuration = Math.random() * 2 + 4 + "s"; // Duración aleatoria de la caída
+                document.body.appendChild(dotLeft);
+
+                let dotRight = document.createElement("div");
+                dotRight.classList.add("dot", "right");
+                dotRight.style.top = Math.random() * 100 + "vh";
+                dotRight.style.animationDuration = Math.random() * 2 + 4 + "s";
+                document.body.appendChild(dotRight);
+            }
+        }
+
+        // Llamar a la función para crear los puntos al cargar la página
+        window.onload = createDots;
+    </script>
+</body>
+</html>
